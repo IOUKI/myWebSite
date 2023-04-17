@@ -1,8 +1,8 @@
 <template>
     <blockLayout>
-        <div class="w-full h-full flex justify-center items-center">
+        <div id="title" class="w-full h-full flex justify-center items-center">
             <h1 class="text-3xl text-sky-500 animate-ping">
-                Hello lan
+                你好～
             </h1>
         </div>
     </blockLayout>

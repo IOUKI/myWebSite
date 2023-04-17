@@ -1,21 +1,18 @@
 <template>
     <div id="Navbar"
-        class=" fixed text-3xl w-full shadow text-white py-3.5 px-6 md:flex justify-between items-center select-none z-50 duration-500">
+        class="fixed text-3xl w-full text-white py-3.5 px-6 md:flex justify-between items-center select-none z-50 duration-500">
 
-        <div class="flex items-center cursor-pointer duration-500">
+        <div @click="goPath(websiteUrl)" class="flex items-center cursor-pointer duration-500">
 
             <span class="mr-1">
                 <img src="../../public/website.png" alt="" class="w-7 h-7">
             </span>
 
-            <h1>摟狗</h1>
+            <h1>Lan</h1>
 
         </div>
 
         <span @click="MenuToggle()" class="absolute top-3 right-5 md:hidden cursor-pointer">
-            <!-- <font-awesome-icon v-if="open" icon="fa-solid fa-xmark" />
-            <font-awesome-icon v-else icon="fa-solid fa-bars" /> -->
-
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
                 viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
@@ -39,17 +36,19 @@
 </template>
   
 <script>
+import { websiteUrl } from '../modules/url/urls.js'
 
 export default {
 
     data() {
         return {
+            websiteUrl: websiteUrl,
             open: false,
             Links: [
-                { name: 'TOP', link: '#Home' },
-                { name: '關於我們', link: '#About' },
-                { name: '服務項目', link: '#Service' },
-                { name: '聯繫我們', link: '#Contact' },
+                { name: 'HOME', link: '#title' },
+                { name: '自介', link: '#' },
+                { name: '技術', link: '#' },
+                { name: '社群', link: '#' },
             ],
         }
     },
@@ -70,6 +69,9 @@ export default {
                     });
                 });
             });
+        },
+        goPath(Url) {
+            window.location.href = Url 
         }
     },
 

@@ -1,5 +1,7 @@
 <template>
-    <Title></Title>
+    <div class="select-none">
+        <Title></Title>
+    </div>
 </template>
 
 <script>
