@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "vanta": "^0.5.24",
     "vue": "^3.2.47",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vue-vanta": "^0.0.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
