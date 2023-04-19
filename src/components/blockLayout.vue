@@ -1,5 +1,5 @@
 <template>
-    <section class="w-full h-screen bg-gray-900">
+    <section class="w-full h-screen">
         <slot></slot>
     </section>
 </template>

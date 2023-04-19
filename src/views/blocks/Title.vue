@@ -1,7 +1,7 @@
 <template>
     <blockLayout>
         <div id="title" class="w-full h-full flex justify-center items-center">
-            <h1 class="text-3xl text-sky-500 animate-ping">
+            <h1 class="text-3xl text-sky-500 animate-fade">
                 你好～
             </h1>
         </div>

@@ -1,8 +1,8 @@
 <template>
     <div id="Navbar"
-        class="fixed text-3xl w-full text-white py-3.5 px-6 md:flex justify-between items-center select-none z-50 duration-500">
+        class="fixed text-3xl w-full text-white shadow-2xl py-3.5 px-6 md:flex justify-between items-center select-none z-50 duration-500">
 
-        <div @click="goPath(websiteUrl)" class="flex items-center cursor-pointer duration-500">
+        <div class="flex items-center duration-500 select-none">
 
             <span class="mr-1">
                 <img src="../../public/website.png" alt="" class="w-7 h-7">
@@ -50,6 +50,7 @@ export default {
                 { name: '技術', link: '#' },
                 { name: '社群', link: '#' },
             ],
+            oldScrollTop: 0,
         }
     },
 
@@ -70,13 +71,29 @@ export default {
                 });
             });
         },
-        goPath(Url) {
-            window.location.href = Url 
+        scrolling() {
+            const Navbar = document.getElementById('Navbar')
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+            let scrollStep = scrollTop - this.oldScrollTop
+            this.oldScrollTop = scrollTop
+
+            if (scrollStep < 0) {
+                if (Navbar.classList.contains('top-[-100px]')) {
+                    Navbar.classList.add('top-[0px]')
+                    Navbar.classList.add('top-[-100px]')
+                }
+            } else {
+                if (Navbar.classList.contains('top-[0px]')) {
+                    Navbar.classList.remove('top-[0px]')
+                    Navbar.classList.add('top-[-100px]')
+                }
+            }
         }
     },
 
     mounted() {
         this.smooth_scroll()
+        window.addEventListener('scroll', this.scrolling)
     },
 
 }
