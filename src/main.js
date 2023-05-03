@@ -5,7 +5,8 @@ import router from './router/router'
 
 // vanta.js
 import "./modules/vanta/three.min.js"
-import "./modules/vanta/vanta.birds.min.js"
+import "./modules/vanta/vanta.globe.min.js"
+
 
 const app = createApp(App)
 
