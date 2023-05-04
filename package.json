@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "animejs": "^3.2.1",
     "aos": "^2.3.4",
     "typed.js": "^2.0.16",
     "vanta": "^0.5.24",

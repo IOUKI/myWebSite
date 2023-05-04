@@ -5,7 +5,7 @@
         <div class="flex items-center duration-500 select-none">
 
             <span class="mr-1">
-                <img src="../../public/website.png" alt="" class="w-7 h-7">
+                <img src="/website.png" alt="" class="w-7 h-7">
             </span>
 
             <h1>Lan</h1>

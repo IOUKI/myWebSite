@@ -1,7 +1,7 @@
 <template>
     <blockLayout>
         <div id="Title" class="w-full h-full flex justify-center items-center">
-            <h1 id="titleText" class="text-6xl text-sky-500 bg-gray-900 p-3">
+            <h1 id="titleText" class="text-3xl md:text-6xl text-sky-500 bg-gray-900 p-3">
             </h1>
         </div>
     </blockLayout>
@@ -35,7 +35,7 @@ export default {
             strings: ['你好～<br>^1000 我是Lan<br>^1000 一個軟體工程師^1000'],
             showCursor: false,
             typeSpeed: 50,
-            backSpeed: 30,
+            backSpeed: 0,
             loop: true,
         })
     }
