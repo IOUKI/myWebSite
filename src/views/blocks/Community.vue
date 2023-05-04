@@ -1,8 +1,8 @@
 <template>
     <blockLayoutVue>
-        <div id="Contact" class="w-full h-full flex justify-center items-center">
+        <div id="Community" class="w-full h-full flex justify-center items-center">
             <h1 class="text-3xl text-sky-500 animate-fade">
-                Contact
+                Community
             </h1>
         </div>
     </blockLayoutVue>

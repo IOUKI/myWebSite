@@ -7,7 +7,7 @@ const routes = [
         name: 'Main',
         component: MainView,
         meta: {
-            title: 'Lan Web Site'
+            title: 'Lan'
         }
     }
 ]

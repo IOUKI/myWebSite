@@ -31,7 +31,7 @@
             <li @click="MenuClose()" class="md:mx-4 md:my-0 my-6 text-center hover:text-white cursor-pointer duration-500"
                 v-for="link in Links" :key="link">
                 <div :href="link.link"
-                    class="relative after:absolute after:bg-gray-200 after:bottom-0 after:left-0 after:h-[4px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">
+                    class="relative pb-1 after:absolute after:bg-gray-200 after:bottom-0 after:left-0 after:h-[4px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">
                     {{ link.name }}
                 </div>
             </li>
@@ -42,6 +42,7 @@
   
 <script>
 import { websiteUrl } from '../modules/url/urls.js'
+import scrollSmooth from '../modules/windowScroll/smooth'
 
 export default {
 
@@ -51,9 +52,9 @@ export default {
             open: false,
             Links: [
                 { name: 'TOP', link: '#Title' },
-                { name: 'About', link: '#About' },
-                { name: 'Skill', link: '#Skill' },
-                { name: 'Contact', link: '#Contact' },
+                { name: '關於', link: '#About' },
+                { name: '技能', link: '#Skill' },
+                { name: '社群', link: '#Community' },
             ],
             oldScrollTop: 0,
         }
@@ -65,16 +66,6 @@ export default {
         },
         MenuClose() {
             this.open = false;
-        },
-        smooth_scroll() {
-            document.querySelectorAll('div[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
         },
         openOrCloseNavbar(toggle) {
             // toggle: true => open nav, false => close nav.
@@ -100,17 +91,12 @@ export default {
             this.oldScrollTop = scrollTop
 
             if (scrollStep < 0) {
-                // 顯示
+                // 向上滾動顯示navbar
                 this.openOrCloseNavbar(true)
             } else {
-                // 關閉
+                // 向下滾動關閉navbar
                 this.openOrCloseNavbar(false)
             }
-
-            // if (scrollTop == 0) {
-            //     const Navbar = document.getElementById('Navbar')
-            //     Navbar.classList.remove('shadow-2xl')
-            // }
         },
     },
 
@@ -129,8 +115,10 @@ export default {
     },
 
     mounted() {
-        this.smooth_scroll()
+        scrollSmooth()
         window.addEventListener('scroll', this.scrolling)
+
+        // 滑鼠游標移到靠近上方的時候，顯示navbar
         document.addEventListener('mousemove', function (event) {
             const mouseY = event.clientY
             const windowHeight = window.innerHeight // 畫面總高度
@@ -139,7 +127,12 @@ export default {
             if (range >= 0 && range <= 50) {
                 const Navbar = document.getElementById('Navbar')
                 Navbar.classList.add('top-[0px]')
-                Navbar.classList.remove('top-[-100px]')   
+                Navbar.classList.remove('top-[-100px]')
+            }
+
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+            if (scrollTop == 0) {
+                Navbar.classList.remove('shadow-2xl')
             }
         });
     },
